@@ -17,10 +17,16 @@ import React, { Component } from 'react'
 
 import Skinview3d from 'react-skinview3d'
 
-class Example extends Component {
+class ExampleApp extends Component {
   render () {
     return (
-      <Skinview3d />
+      <React.Fragment>
+        <Skinview3d
+          skinUrl="textures/skin-1.8-slim-no_hd.png"
+          height="500"
+          width="500"
+        />
+      </React.Fragment>
     )
   }
 }
