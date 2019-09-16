@@ -27,7 +27,8 @@ export default class Skinview3d extends Component {
         domElement: this.skinviewRef.current,
         width: this.props.width,
         height: this.props.height,
-        skinUrl: this.props.skinUrl
+        skinUrl: this.props.skinUrl,
+        capeUrl: this.props.capeUrl
       })
     }, () => {
       let control = skinview3d.createOrbitControls(this.state.viewer);
@@ -56,5 +57,6 @@ export default class Skinview3d extends Component {
 Skinview3d.defaultProps = {
   width: 600,
   height: 600,
-  skinURL: String
+  skinURL: String,
+  capeURL: String
 };
