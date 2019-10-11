@@ -23,6 +23,7 @@ class ExampleApp extends Component {
       <React.Fragment>
         <Skinview3d
           skinUrl="textures/skin-1.8-slim-no_hd.png"
+          capeUrl="textures/minecon-cape-2016.png"
           height="500"
           width="500"
         />

@@ -47,7 +47,7 @@ export default class Skinview3d extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className={this.props.className} ref={this.skinviewRef}></div>
+        <div className={this.props.className} ref={this.skinviewRef} style={{imageRendering: "pixelated"}}></div>
       </React.Fragment>
     )
   }
