@@ -4,12 +4,7 @@ import PropTypes from 'prop-types'
 // skinview3d
 import * as skinview3d from 'skinview3d';
 
-import styles from './styles.css'
-
 export default class Skinview3d extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
 
   constructor(props) {
     super(props);
@@ -46,11 +41,17 @@ export default class Skinview3d extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <div className={this.props.className} ref={this.skinviewRef} style={{imageRendering: "pixelated"}}></div>
-      </React.Fragment>
+      <div className={this.props.className} ref={this.skinviewRef} style={{ imageRendering: 'pixelated' }}></div>
     )
   }
+}
+
+Skinview3d.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  skinUrl: PropTypes.string.isRequired,
+  capeUrl: PropTypes.string,
+  className: PropTypes.object,
 }
 
 // Specifies the default values for props:
