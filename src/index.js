@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-// skinview3d
 import * as skinview3d from 'skinview3d';
 
 export default class Skinview3d extends Component {
 
   constructor(props) {
     super(props);
-
     this.skinviewRef = React.createRef();
-
     this.state = {
-      skinview3d: null
+      viewer: null
     };
   }
 
@@ -39,6 +36,18 @@ export default class Skinview3d extends Component {
     });
   }
 
+  componentDidUpdate(prevProps) {
+    const { viewer } = this.state;
+
+    if (prevProps.skinUrl !== this.props.skinUrl) {
+     viewer.skinUrl = this.props.skinUrl;
+    }
+
+    if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
+      viewer.setSize(this.props.width, this.props.height);
+    }
+  }
+
   render() {
     return (
       <div className={this.props.className} ref={this.skinviewRef} style={{ imageRendering: 'pixelated' }}></div>
@@ -58,6 +67,5 @@ Skinview3d.propTypes = {
 Skinview3d.defaultProps = {
   width: 600,
   height: 600,
-  skinURL: String,
-  capeURL: String
+  skinUrl: '',
 };
