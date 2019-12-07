@@ -27,6 +27,9 @@ export default class Skinview3d extends Component {
       control.enableRotate = true;
       control.enableZoom = false;
       control.enablePan = false;
+
+      // let's call ready here
+      this.props.onReady(this.state.viewer);
     });
   }
 
@@ -56,11 +59,18 @@ export default class Skinview3d extends Component {
 }
 
 Skinview3d.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
+  width: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
+  height: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]),
   skinUrl: PropTypes.string.isRequired,
   capeUrl: PropTypes.string,
-  className: PropTypes.object,
+  className: PropTypes.string,
+  onReady: PropTypes.func,
 }
 
 // Specifies the default values for props:
@@ -68,4 +78,5 @@ Skinview3d.defaultProps = {
   width: 600,
   height: 600,
   skinUrl: '',
+  onReady: () => {}
 };

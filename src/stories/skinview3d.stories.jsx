@@ -14,6 +14,10 @@ export const basic = () => (
     skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
     height="600"
     width="600"
+    onReady={(instance) => {
+      // eslint-disable-next-line no-undef
+      console.log(instance);
+    }}
   />
 );
 
@@ -61,7 +65,6 @@ export const multiple = () => (
       width="300"
     />
     <Skinview3d
-      className='viewer'
       skinUrl={require("../textures/skin-1.8-slim-no_hd.png")}
       height="300"
       width="300"
