@@ -45,6 +45,10 @@ export default class Skinview3d extends Component {
     if (prevProps.skinUrl !== this.props.skinUrl) {
      viewer.skinUrl = this.props.skinUrl;
     }
+    
+    if (prevProps.capeUrl !== this.props.capeUrl) {
+     viewer.capeUrl = this.props.capeUrl;
+    }
 
     if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
       viewer.setSize(this.props.width, this.props.height);
