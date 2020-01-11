@@ -29,6 +29,22 @@ class ExampleApp extends Component {
   }
 }
 ```
+**Props:**
+
+Name | Type | Description | Default |
+------ | ------ | ------ | ------ |
+`skinUrl` | string, required | Skin URL | |
+`capeUrl` | string | Cape URL | |
+`width` | number, string | Element width | 600 |
+`height` | number, string | Element height | 600 |
+||||
+`run` | boolen | Enable run animation | false |
+`runSpeed` | number, string | Speed run animation | 1 |
+`runPaused` | boolen | Stop run animation | false |
+||||
+`walk` | boolen | Enable walk animation | false |
+`walkSpeed` | number, string | Speed walk animation | 1 |
+`walkPaused` | boolen | Stop walk animation | false |
 
 ## License
 
