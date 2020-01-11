@@ -40,11 +40,11 @@ Name | Type | Description | Default |
 ||||
 `run` | boolen | Enable run animation | false |
 `runSpeed` | number, string | Speed run animation | 1 |
-`runPaused` | boolen | Stop run animation | false |
+`runPaused` | boolen | Pause run animation | false |
 ||||
 `walk` | boolen | Enable walk animation | false |
 `walkSpeed` | number, string | Speed walk animation | 1 |
-`walkPaused` | boolen | Stop walk animation | false |
+`walkPaused` | boolen | Pause walk animation | false |
 
 ## License
 
