@@ -31,17 +31,6 @@ export default class Skinview3d extends Component {
             control.enableZoom = false;
             control.enablePan = false;
 
-            // animation
-            if (run || walk) {
-                viewer.animation = new skinview3d.CompositeAnimation();
-                if (run) {
-                    this.createAnimation(viewer.animation, true);
-                }
-                if (walk) {
-                    this.createAnimation(viewer.animation, false);
-                }
-            }
-
             // let's call ready here
             this.props.onReady(this.state.viewer);
         });
@@ -49,14 +38,12 @@ export default class Skinview3d extends Component {
 
     componentWillUnmount() {
         this.setState({
-            viewer: null,
-            walk: null,
-            run: null,
+            viewer: null
         });
     }
 
     componentDidUpdate(prevProps) {
-        const { viewer, run, walk } = this.state;
+        const { viewer } = this.state;
 
         if (prevProps.skinUrl !== this.props.skinUrl) {
             viewer.skinUrl = this.props.skinUrl;
@@ -68,67 +55,6 @@ export default class Skinview3d extends Component {
 
         if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
             viewer.setSize(this.props.width, this.props.height);
-        }
-
-        // animation
-        if (prevProps.run !== this.props.run) {
-            if (this.props.run) {
-                viewer.animation = new skinview3d.CompositeAnimation();
-                return this.createAnimation(viewer.animation, true);
-            } else {
-                if (run) run.remove();
-            }
-        }
-        if (prevProps.walk !== this.props.walk) {
-            if (this.props.walk) {
-                viewer.animation = new skinview3d.CompositeAnimation();
-                return this.createAnimation(viewer.animation, false);
-            } else {
-                if (walk) walk.remove();
-            }
-        }
-
-        if (prevProps.runSpeed !== this.props.runSpeed) {
-            if (run) {
-                run.speed = this.props.runSpeed;
-                this.setState({run});
-            }
-        }
-        if (prevProps.walkSpeed !== this.props.walkSpeed) {
-            if (walk) {
-                walk.speed = this.props.walkSpeed;
-                this.setState({walk});
-            }
-        }
-
-        if (prevProps.runPaused !== this.props.runPaused) {
-            if (run) {
-                run.paused = this.props.runPaused;
-                this.setState({run});
-            }
-        }
-        if (prevProps.walkPaused !== this.props.walkPaused) {
-            if (walk) {
-                walk.paused = this.props.walkPaused;
-                this.setState({walk});
-            }
-        }
-
-        if (prevProps.paused !== this.props.paused) {
-            viewer.animationPaused = this.props.paused;
-            this.setState({viewer});
-        }
-    }
-
-    createAnimation(viewerAnimation, isRun) {
-        if (isRun) {
-            let run = viewerAnimation.add(skinview3d.RunningAnimation);
-            run.speed = this.props.runSpeed;
-            this.setState({run});
-        } else {
-            let walk = viewerAnimation.add(skinview3d.WalkingAnimation);
-            walk.speed = this.props.walkSpeed;
-            this.setState({walk});
         }
     }
 
@@ -150,19 +76,6 @@ Skinview3d.propTypes = {
     ]),
     skinUrl: PropTypes.string.isRequired,
     capeUrl: PropTypes.string,
-    run: PropTypes.bool,
-    runSpeed: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-    ]),
-    runPaused: PropTypes.bool,
-    walk: PropTypes.bool,
-    walkSpeed: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-    ]),
-    walkPaused: PropTypes.bool,
-    paused: PropTypes.bool,
     className: PropTypes.string,
     onReady: PropTypes.func,
 };
@@ -171,12 +84,5 @@ Skinview3d.propTypes = {
 Skinview3d.defaultProps = {
     width: 600,
     height: 600,
-    walk: false,
-    walkSpeed: 1,
-    walkPaused: false,
-    run: false,
-    runSpeed: 1,
-    runPaused: false,
-    paused: false,
     onReady: () => {}
 };
