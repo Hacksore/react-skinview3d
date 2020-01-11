@@ -24,7 +24,6 @@ export default class Skinview3d extends Component {
             })
         }, () => {
             const { viewer } = this.state;
-            const { run, walk } = this.props;
 
             let control = skinview3d.createOrbitControls(this.state.viewer);
             control.enableRotate = true;
