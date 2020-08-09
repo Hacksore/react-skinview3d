@@ -36,9 +36,7 @@ export default class Skinview3d extends Component {
     }
 
     componentWillUnmount() {
-        this.setState({
-            viewer: null
-        });
+        this.state.viewer.renderer.forceContextLoss();
     }
 
     componentDidUpdate(prevProps) {
