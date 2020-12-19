@@ -25,10 +25,12 @@ export default class Skinview3d extends Component {
         }, () => {
             const { viewer } = this.state;
 
-            let control = skinview3d.createOrbitControls(this.state.viewer);
-            control.enableRotate = true;
-            control.enableZoom = false;
-            control.enablePan = false;
+            if (this.props.enableOrbitControls) {
+                let control = skinview3d.createOrbitControls(this.state.viewer);
+                control.enableRotate = true;
+                control.enableZoom = false;
+                control.enablePan = false;
+            }
 
             // let's call ready here
             this.props.onReady(this.state.viewer);
@@ -57,7 +59,7 @@ export default class Skinview3d extends Component {
 
     render() {
         return (
-            <div className={this.props.className} ref={this.skinviewRef} style={{imageRendering: 'pixelated'}}/>
+            <div className={this.props.className} ref={this.skinviewRef} style={{ imageRendering: 'pixelated' }} />
         )
     }
 }
@@ -73,6 +75,7 @@ Skinview3d.propTypes = {
     ]),
     skinUrl: PropTypes.string.isRequired,
     capeUrl: PropTypes.string,
+    enableOrbitControls: PropTypes.bool,
     className: PropTypes.string,
     onReady: PropTypes.func,
 };
@@ -81,5 +84,6 @@ Skinview3d.propTypes = {
 Skinview3d.defaultProps = {
     width: 600,
     height: 600,
-    onReady: () => {}
+    enableOrbitControls: true, // Allows for a bit more control
+    onReady: () => { }
 };
