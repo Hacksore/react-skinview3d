@@ -4,7 +4,6 @@ import { radios, number } from '@storybook/addon-knobs';
 import { withKnobs } from '@storybook/addon-knobs/react';
 
 import * as skinview from 'skinview3d';
-import * as THREE from 'three';
 
 export default {
   title: 'All stories',
@@ -21,6 +20,16 @@ export const basic = () => (
       // eslint-disable-next-line no-undef
       console.log(instance);
     }}
+  />
+);
+
+export const noOrbit = () => (
+  <Skinview3d
+    className='viewer'
+    skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
+    height="300"
+    width="150"
+    enableOrbitControls={false}
   />
 );
 
@@ -90,6 +99,27 @@ export const withAnimation = () => {
 
       skinViewer.animation.add(skinview.WalkingAnimation);
 
+    }}
+  />
+};
+
+export const withCape = () => {
+  return <Skinview3d
+    className='viewer'
+    skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
+    capeUrl={require("../textures/mojang-classic-cape.png")}
+    height="300"
+    width="150"
+  />
+};
+
+export const initWithConfig = () => {
+  return <Skinview3d
+    className='viewer'
+    config={{
+      width: 300,
+      heigh: 400,
+      skinUrl: require('../textures/skin-legacyhat-default-no_hd.png')
     }}
   />
 };
