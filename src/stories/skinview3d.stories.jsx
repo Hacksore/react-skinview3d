@@ -1,19 +1,17 @@
-import React from 'react';
-import Skinview3d from '..';
-import { radios, number } from '@storybook/addon-knobs';
-import { withKnobs } from '@storybook/addon-knobs/react';
-
-import * as skinview from 'skinview3d';
+import React from "react";
+import Skinview3d from "..";
+import { withKnobs, radios, number } from "@storybook/addon-knobs";
+import * as skinview from "skinview3d";
 
 export default {
-  title: 'All stories',
-  decorators: [withKnobs]
+  title: "All stories",
+  decorators: [withKnobs],
 };
 
 export const basic = () => (
   <Skinview3d
-    className='viewer'
-    skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
+    className="viewer"
+    skinUrl="/textures/skin-legacyhat-default-no_hd.png"
     height="300"
     width="150"
     onReady={(instance) => {
@@ -26,7 +24,7 @@ export const basic = () => (
 export const noOrbit = () => (
   <Skinview3d
     className='viewer'
-    skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
+    skinUrl="/textures/skin-legacyhat-default-no_hd.png"
     height="300"
     width="150"
     enableOrbitControls={false}
@@ -36,13 +34,13 @@ export const noOrbit = () => (
 export const basicWithKnobs = () => {
 
   const options = [
-    'textures/skin-legacyhat-default-no_hd.png',
-    'textures/skin-1.8-default-no_hd.png',
-    'textures/skin-1.8-slim-no_hd.png',
-    'textures/skin-old-default-no_hd.png',
+    '/textures/skin-legacyhat-default-no_hd.png',
+    '/textures/skin-1.8-default-no_hd.png',
+    '/textures/skin-1.8-slim-no_hd.png',
+    '/textures/skin-old-default-no_hd.png',
   ]
 
-  const value = radios('Skin URL', options, 'textures/skin-legacyhat-default-no_hd.png');
+  const value = radios('Skin URL', options, '/textures/skin-legacyhat-default-no_hd.png');
 
   const numberOptions = {
     range: true,
@@ -56,7 +54,7 @@ export const basicWithKnobs = () => {
 
   return <Skinview3d
     className='viewer'
-    skinUrl={require(`../${value}`)}
+    skinUrl={value}
     height={height}
     width={width}
   />
@@ -66,29 +64,28 @@ export const multiple = () => (
   <div style={{ display: 'flex', flexDirection: 'row',  }}>
     <Skinview3d
       className='viewer'
-      skinUrl={require("../textures/skin-legacyhat-default-no_hd.png")}
+      skinUrl="/textures/skin-legacyhat-default-no_hd.png"
       height="300"
       width="120"
     />
     <Skinview3d
       className='viewer'
-      skinUrl={require("../textures/skin-1.8-default-no_hd.png")}
+      skinUrl="/textures/skin-1.8-default-no_hd.png"
       height="300"
       width="120"
     />
     <Skinview3d
-      skinUrl={require("../textures/skin-1.8-slim-no_hd.png")}
+      skinUrl="/textures/skin-1.8-slim-no_hd.png"
       height="300"
       width="120"
     />
   </div>
 );
 
-
 export const withAnimation = () => {
   return <Skinview3d
     className='viewer'
-    skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
+    skinUrl="/textures/skin-legacyhat-default-no_hd.png"
     height="300"
     width="150"
     onReady={skinViewer => {
@@ -106,8 +103,8 @@ export const withAnimation = () => {
 export const withCape = () => {
   return <Skinview3d
     className='viewer'
-    skinUrl={require('../textures/skin-legacyhat-default-no_hd.png')}
-    capeUrl={require("../textures/mojang-classic-cape.png")}
+    skinUrl="/textures/skin-legacyhat-default-no_hd.png"
+    capeUrl="/textures/mojang-classic-cape.png"
     height="300"
     width="150"
   />
@@ -119,7 +116,7 @@ export const initWithConfig = () => {
     config={{
       width: 300,
       heigh: 400,
-      skinUrl: require('../textures/skin-legacyhat-default-no_hd.png')
+      skinUrl: "/textures/skin-legacyhat-default-no_hd.png"
     }}
   />
 };

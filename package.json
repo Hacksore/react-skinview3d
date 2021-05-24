@@ -7,62 +7,66 @@
   "repository": "Hacksore/react-skinview3d",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
   },
-  "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "lint": "eslint src/**/*.js",
-    "test:watch": "react-scripts test --env=jsdom",
+  "scripts": {    
+    "lint": "eslint 'src/**/*.jsx'",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
-  },
-  "peerDependencies": {
-    "prop-types": "^15.5.4",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "storybook": "start-storybook -s public -p 6006",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-react": "^7.12.10",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-react": "^7.13.13",
     "@babel/preset-stage-0": "^7.8.3",
-    "@storybook/addon-actions": "^5.3.21",
-    "@storybook/addon-knobs": "^5.3.21",
-    "@storybook/addon-links": "^5.3.21",
-    "@storybook/addons": "^5.3.21",
-    "@storybook/react": "^5.3.21",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-knobs": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addons": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-stage-0": "^6.24.1",
-    "browserslist": "^4.16.0",
-    "cross-env": "^6.0.3",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-standard": "^3.1.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "^3.4.4",
-    "rollup": "^1.32.1",
+    "browserslist": "^4.16.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-react": "^7.23.2",
+    "rollup": "^2.49.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-url": "^3.0.1"
+    "rollup-plugin-url": "^3.0.1",
+    "react-scripts": "^4.0.3"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "skinview3d": "^2.0.0-beta.1"
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "skinview3d": "^2.0.1"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }

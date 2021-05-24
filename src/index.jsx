@@ -1,31 +1,26 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import * as skinview3d from 'skinview3d';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import * as skinview3d from "skinview3d";
 export default class Skinview3d extends Component {
-
   constructor(props) {
     super(props);
     this.skinviewRef = React.createRef();
     this.state = {
-      viewer: null
+      viewer: null,
     };
   }
 
   componentDidMount() {
-    
-    this.setState({
-      viewer: new skinview3d.SkinViewer({
-        canvas: this.skinviewRef.current,
-        width: this.props.width,
-        height: this.props.height
-      })
-    }, () => {
-      //const { viewer } = this.state;
-      // const { config } = this.props;
-
-      this.initializeProps();
-
-    });
+    this.setState(
+      {
+        viewer: new skinview3d.SkinViewer({
+          canvas: this.skinviewRef.current,
+          width: this.props.width,
+          height: this.props.height,
+        }),
+      },
+      () => this.initializeProps()
+    );
   }
 
   componentWillUnmount() {
@@ -34,16 +29,22 @@ export default class Skinview3d extends Component {
 
   componentDidUpdate(prevProps) {
     const { viewer } = this.state;
+    const { skinUrl, capeUrl } = this.props;
+
+    // console.log("helloe")
 
     if (prevProps.skinUrl !== this.props.skinUrl) {
-      viewer.skinUrl = this.props.skinUrl;
+      viewer.loadSkin(skinUrl);
     }
 
     if (prevProps.capeUrl !== this.props.capeUrl) {
-      viewer.capeUrl = this.props.capeUrl;
+      viewer.loadCape(capeUrl);
     }
 
-    if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
+    if (
+      prevProps.width !== this.props.width ||
+      prevProps.height !== this.props.height
+    ) {
       viewer.setSize(this.props.width, this.props.height);
     }
   }
@@ -63,7 +64,9 @@ export default class Skinview3d extends Component {
     viewer.loadSkin(skinUrl);
 
     // load cape
-    viewer.loadCape(capeUrl);
+    if (capeUrl) {
+      viewer.loadCape(capeUrl);
+    }
 
     if (enableOrbitControls) {
       const control = skinview3d.createOrbitControls(viewer);
@@ -78,20 +81,18 @@ export default class Skinview3d extends Component {
 
   render() {
     return (
-      <canvas className={this.props.className} ref={this.skinviewRef} style={{ imageRendering: 'pixelated' }} />
+      <canvas
+        className={this.props.className}
+        ref={this.skinviewRef}
+        style={{ imageRendering: "pixelated" }}
+      />
     );
   }
 }
 
 Skinview3d.propTypes = {
-  width: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  height: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   skinUrl: PropTypes.string.isRequired,
   capeUrl: PropTypes.string,
   enableOrbitControls: PropTypes.bool,
@@ -106,5 +107,5 @@ Skinview3d.defaultProps = {
   height: 600,
   enableOrbitControls: true, // Allows for a bit more control
   onReady: () => {},
-  config: null
+  config: null,
 };
