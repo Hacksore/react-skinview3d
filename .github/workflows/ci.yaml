@@ -12,7 +12,7 @@ jobs:
           node-version: "14"
       - name: install & build
         run: |
-          npm ci
+          npm ci --no-optional
           npm run build
   # publish:
   #   runs-on: ubuntu-latest
