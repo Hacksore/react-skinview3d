@@ -1,6 +1,6 @@
 {
   "name": "react-skinview3d",
-  "version": "2.0.0",
+  "version": "3.0.0-alpha1",
   "description": "A React component for skinview3d Minecraft viewer",
   "author": "Hacksore",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "npm": ">=5"
   },
   "scripts": {
-    "lint": "eslint 'src/**/*.jsx'",
+    "lint": "eslint 'src/**/*.tsx'",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "storybook": "start-storybook -s public -p 6006",
@@ -20,53 +20,34 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
-    "@babel/preset-react": "^7.13.13",
-    "@babel/preset-stage-0": "^7.8.3",
+    "@babel/plugin-transform-react-jsx": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
     "@rollup/plugin-commonjs": "^19.0.0",
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
+    "@rollup/plugin-typescript": "^8.2.3",
+    "@storybook/addon-actions": "^6.3.5",
+    "@storybook/addon-essentials": "^6.3.5",
     "@storybook/addon-knobs": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/addons": "^6.2.9",
-    "@storybook/node-logger": "^6.2.9",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "browserslist": "^4.16.6",
-    "cross-env": "^7.0.3",
+    "@storybook/addon-links": "^6.3.5",
+    "@storybook/addons": "^6.3.5",
+    "@storybook/node-logger": "^6.3.5",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.5",
+    "@types/react": "^17.0.15",
     "eslint": "^7.27.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-react": "^7.23.2",
     "rollup": "^2.49.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-url": "^3.0.1",
-    "react-scripts": "^4.0.3"
+    "rollup-plugin-url": "^3.0.1"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
-    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "skinview3d": "^2.0.1"
-  },
-  "eslintConfig": {
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   }
 }

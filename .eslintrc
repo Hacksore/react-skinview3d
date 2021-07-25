@@ -1,29 +1,14 @@
 {
   "parser": "babel-eslint",
   "env": {
-    "es6": true
+    "es6": true,
+    "browser": true
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "parserOptions": {
     "sourceType": "module"
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "settings": {
-    "react": {
-      "createClass": "createReactClass",
-      "pragma": "React",
-      "version": "detect"
-    }
-  },
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
-    // don't force es6 functions to include space before paren
-    "space-before-function-paren": 0,
-    // allow specifying true explicitly for boolean props
-    "react/jsx-boolean-value": 0
   }
 }
