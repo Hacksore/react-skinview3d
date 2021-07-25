@@ -16,17 +16,17 @@ npm install --save react-skinview3d
 import React, { Component } from 'react'
 import Skinview3d from 'react-skinview3d'
 
-class ExampleApp extends Component {
-  render () {
-    return (
-      <Skinview3d
-        skinUrl="textures/skin-1.8-slim-no_hd.png"
-        capeUrl="textures/minecon-cape-2016.png"
-        height="500"
-        width="500"
-      />
-    )
-  }
+const App () => {
+
+  return (
+    <Skinview3d
+      skinUrl="textures/skin-1.8-slim-no_hd.png"
+      capeUrl="textures/minecon-cape-2016.png"
+      height="500"
+      width="500"
+    />
+  )
+
 }
 ```
 

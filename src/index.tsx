@@ -1,7 +1,6 @@
 // TODO: get react transform working
 import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
-
 interface ISkinview3d {
   className?: any; // TODO: type this
   width?: number;
@@ -10,7 +9,6 @@ interface ISkinview3d {
   capeUrl?: string;
   onReady?: Function;
   enableOrbitControls?: boolean;
-  config?: any;
 }
 
 const Skinview3d = ({
@@ -21,10 +19,9 @@ const Skinview3d = ({
   capeUrl,
   enableOrbitControls = false,
   onReady,
-  config
 }: ISkinview3d) => {
   const canvasRef = useRef();
-  const skinviewRef = useRef();
+  const skinviewRef = useRef<any>();
 
   useEffect(() => {
     const viewer = new skinview3d.SkinViewer({
@@ -32,9 +29,6 @@ const Skinview3d = ({
       width: width,
       height: height,
     });
-
-    console.log("skinUrl", skinUrl)
-    console.log("config", config)
 
     viewer.loadSkin(skinUrl);
     viewer.loadCape(capeUrl);
@@ -49,10 +43,22 @@ const Skinview3d = ({
     // @ts-ignore
     skinviewRef.current = viewer;
 
-    // call onReady
-    onReady(viewer);
+    // call onReady with the viewer instance
+    if (onReady) {
+      onReady(viewer);
+    }
 
   }, []);
+
+  // skin url changes
+  useEffect(() => {
+    skinviewRef.current.loadSkin(skinUrl);
+  }, [skinUrl]);
+
+  // cape url changes
+  useEffect(() => {
+    skinviewRef.current.loadCape(capeUrl);
+  }, [capeUrl]);
 
   return (
     <canvas
