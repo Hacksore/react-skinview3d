@@ -1,6 +1,6 @@
 # react-skinview3d
 
-> A react component for skinview3d Minecraft viewer
+Three.js powered Minecraft skin viewer component for react - see upstream project for more info [skinview3d](https://github.com/bs-community/skinview3d)
 
 [![NPM](https://img.shields.io/npm/v/react-skinview3d.svg)](https://www.npmjs.com/package/react-skinview3d)
 
@@ -13,8 +13,8 @@ npm install --save react-skinview3d
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-import Skinview3d from 'react-skinview3d'
+import React, { Component } from "react"
+import Skinview3d from "react-skinview3d"
 
 const App () => {
 

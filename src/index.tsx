@@ -1,6 +1,9 @@
 // TODO: get react transform working
 import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
+
+// TODO: offscreen canvas support
+
 interface ISkinview3d {
   className?: any; // TODO: type this
   width?: number;
@@ -8,7 +11,6 @@ interface ISkinview3d {
   skinUrl?: string;
   capeUrl?: string;
   onReady?: Function;
-  enableOrbitControls?: boolean;
 }
 
 const Skinview3d = ({
@@ -17,9 +19,9 @@ const Skinview3d = ({
   height,
   skinUrl,
   capeUrl,
-  enableOrbitControls = false,
   onReady,
 }: ISkinview3d) => {
+
   const canvasRef = useRef();
   const skinviewRef = useRef<any>();
 
@@ -30,15 +32,9 @@ const Skinview3d = ({
       height: height,
     });
 
-    viewer.loadSkin(skinUrl);
-    viewer.loadCape(capeUrl);
-
-    if (enableOrbitControls) {
-      const control = skinview3d.createOrbitControls(viewer);
-      control.enableRotate = true;
-      control.enableZoom = false;
-      control.enablePan = false;
-    }
+    // handle cape/skin load intitially
+    skinUrl && viewer.loadSkin(skinUrl);
+    capeUrl && viewer.loadCape(capeUrl);
 
     // @ts-ignore
     skinviewRef.current = viewer;
@@ -52,19 +48,24 @@ const Skinview3d = ({
 
   // skin url changes
   useEffect(() => {
-    skinviewRef.current.loadSkin(skinUrl);
+    skinUrl && skinviewRef.current.loadSkin(skinUrl);
   }, [skinUrl]);
 
   // cape url changes
   useEffect(() => {
-    skinviewRef.current.loadCape(capeUrl);
+    capeUrl && skinviewRef.current.loadCape(capeUrl);
   }, [capeUrl]);
+
+  // size changes
+  useEffect(() => {
+    skinviewRef.current.setSize(width, height)
+  }, [width, height]);
 
   return (
     <canvas
       className={className}
       ref={canvasRef}
-      style={{ imageRendering: "pixelated" }}
+      style={{ imageRendering: "pixelated" }} // TODO: should be configurable
     />
   );
 };

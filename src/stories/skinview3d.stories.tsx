@@ -19,16 +19,6 @@ export const basic = () => (
   />
 );
 
-export const noOrbit = () => (
-  <Skinview3d
-    className='viewer'
-    skinUrl="textures/skin-legacyhat-default-no_hd.png"
-    height={300}
-    width={150}
-    enableOrbitControls={false}
-  />
-);
-
 export const basicWithKnobs = () => {
 
   const options: any = [
@@ -45,7 +35,7 @@ export const basicWithKnobs = () => {
     min: 128,
     max: 1024,
     step: 1,
- };
+  };
 
   const width = number('Width', 150, numberOptions);
   const height = number('Height', 300, numberOptions);
@@ -59,7 +49,7 @@ export const basicWithKnobs = () => {
 };
 
 export const multiple = () => (
-  <div style={{ display: 'flex', flexDirection: 'row',  }}>
+  <div style={{ display: 'flex', flexDirection: 'row', }}>
     <Skinview3d
       className='viewer'
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
@@ -87,7 +77,6 @@ export const withAnimation = () => {
     height={300}
     width={150}
     onReady={(skinViewer: skinview3d.SkinViewer) => {
-      // TODO:
       // Add an animation
       skinViewer.animations.add(skinview3d.WalkingAnimation);
       // Add another animation
@@ -103,5 +92,22 @@ export const withCape = () => {
     capeUrl="textures/mojang-classic-cape.png"
     height={300}
     width={150}
+  />
+};
+
+export const withControls = () => {
+  return <Skinview3d
+    className='viewer'
+    skinUrl="textures/skin-legacyhat-default-no_hd.png"
+    height={300}
+    width={150}
+    onReady={(skinViewer: skinview3d.SkinViewer) => {
+      // Control objects with your mouse!
+      let control = skinview3d.createOrbitControls(skinViewer);
+      control.enableRotate = true;
+      control.enableZoom = true;
+      control.enablePan = false;
+
+    }}
   />
 };

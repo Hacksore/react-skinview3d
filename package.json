@@ -1,6 +1,6 @@
 {
   "name": "react-skinview3d",
-  "version": "3.0.0-alpha1",
+  "version": "3.0.0-alpha2",
   "description": "A React component for skinview3d Minecraft viewer",
   "author": "Hacksore",
   "license": "MIT",
@@ -40,14 +40,18 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-url": "^3.0.1"
+    "rollup-plugin-url": "^3.0.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "files": [
     "dist"
   ],
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "skinview3d": "^2.0.1"
+    "skinview3d": "^2.0.3"
   }
 }
