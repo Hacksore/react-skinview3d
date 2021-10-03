@@ -1,6 +1,6 @@
 {
   "name": "react-skinview3d",
-  "version": "3.0.0-alpha2",
+  "version": "3.0.0",
   "description": "A React component for skinview3d Minecraft viewer",
   "author": "Hacksore",
   "license": "MIT",
