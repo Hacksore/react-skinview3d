@@ -25,5 +25,7 @@ export default {
     },
   ],
   external,
-  plugins: [resolve(), typescript(), babel(), commonjs()],
+  plugins: [resolve(), typescript({
+    tsconfig: './tsconfig.json'
+  }), babel(), commonjs()],
 };

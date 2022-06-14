@@ -5,12 +5,30 @@ import * as skinview3d from "skinview3d";
 // TODO: offscreen canvas support
 
 interface ISkinview3d {
-  className?: any; // TODO: type this
+  /**
+   * The class names to apply to the canvas
+   */
+  className?: string,
+  /**
+   * The width of the canvas
+   */
   width?: number;
+  /**
+   * The height of the canvas
+   */
   height?: number;
+  /**
+   * The skin to load in the canvas
+   */
   skinUrl?: string;
+  /**
+   * The cape to load in the cavas
+   */
   capeUrl?: string;
-  onReady?: Function;
+  /**
+   * A function that is called when the skin viewer is ready
+   */
+  onReady?: (skinview3d: skinview3d.SkinViewer) => void;
 }
 
 const Skinview3d = ({
