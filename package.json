@@ -1,6 +1,6 @@
 {
   "name": "react-skinview3d",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "description": "A React component for skinview3d Minecraft viewer",
   "author": "Hacksore",
   "license": "MIT",
@@ -19,7 +19,8 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
+    "@babel/core": "^7.19.3",
+    "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/plugin-proposal-private-methods": "^7.14.5",
     "@babel/plugin-proposal-private-property-in-object": "^7.15.4",
@@ -37,7 +38,10 @@
     "@storybook/react": "^6.3.12",
     "@storybook/theming": "^6.3.12",
     "@types/react": "^17.0.15",
-    "eslint": "^7.27.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.31.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rollup": "^2.49.0",
@@ -56,6 +60,6 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "skinview3d": "^2.0.3"
+    "skinview3d": "^3.0.0-alpha.1"
   }
 }

@@ -1,9 +1,5 @@
-// TODO: get react transform working
 import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
-
-// TODO: offscreen canvas support
-
 interface ISkinview3d {
   /**
    * The class names to apply to the canvas
@@ -31,6 +27,9 @@ interface ISkinview3d {
   onReady?: (skinview3d: skinview3d.SkinViewer) => void;
 }
 
+/**
+ * A skinview3d component
+ */
 const Skinview3d = ({
   className,
   width,
@@ -50,7 +49,7 @@ const Skinview3d = ({
       height: height,
     });
 
-    // handle cape/skin load intitially
+    // handle cape/skin load initially
     skinUrl && viewer.loadSkin(skinUrl);
     capeUrl && viewer.loadCape(capeUrl);
 

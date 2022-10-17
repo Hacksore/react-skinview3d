@@ -78,14 +78,14 @@ export const withAnimation = () => {
     width={150}
     onReady={(skinViewer: skinview3d.SkinViewer) => {
       // Add an animation
-      skinViewer.animations.add(skinview3d.WalkingAnimation);
+      skinViewer.animation = new skinview3d.WalkingAnimation();
       // Add another animation
-      skinViewer.animations.add(skinview3d.RotatingAnimation);
+      skinViewer.autoRotate = true;
     }}
   />
 };
 
-export const withCape = () => {
+export const cape = () => {
   return <Skinview3d
     className='viewer'
     skinUrl="textures/skin-legacyhat-default-no_hd.png"
@@ -95,19 +95,17 @@ export const withCape = () => {
   />
 };
 
-export const withControls = () => {
+export const controlsDisabled = () => {
   return <Skinview3d
     className='viewer'
     skinUrl="textures/skin-legacyhat-default-no_hd.png"
     height={300}
     width={150}
     onReady={(skinViewer: skinview3d.SkinViewer) => {
-      // Control objects with your mouse!
-      let control = skinview3d.createOrbitControls(skinViewer);
-      control.enableRotate = true;
-      control.enableZoom = true;
-      control.enablePan = false;
-
+      skinViewer.autoRotate = false;
+      skinViewer.controls.enablePan = false;
+      skinViewer.controls.enableRotate = false;
+      skinViewer.controls.enableZoom = false;
     }}
   />
 };
