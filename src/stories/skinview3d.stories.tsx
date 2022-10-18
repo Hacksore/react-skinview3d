@@ -20,15 +20,14 @@ export const basic = () => (
 );
 
 export const basicWithKnobs = () => {
-
   const options: any = [
-    'textures/skin-legacyhat-default-no_hd.png',
-    'textures/skin-1.8-default-no_hd.png',
-    'textures/skin-1.8-slim-no_hd.png',
-    'textures/skin-old-default-no_hd.png',
-  ]
+    "textures/skin-legacyhat-default-no_hd.png",
+    "textures/skin-1.8-default-no_hd.png",
+    "textures/skin-1.8-slim-no_hd.png",
+    "textures/skin-old-default-no_hd.png",
+  ];
 
-  const value = radios('Skin URL', options, 'textures/skin-legacyhat-default-no_hd.png');
+  const value = radios("Skin URL", options, "textures/skin-legacyhat-default-no_hd.png");
 
   const numberOptions = {
     range: true,
@@ -37,75 +36,72 @@ export const basicWithKnobs = () => {
     step: 1,
   };
 
-  const width = number('Width', 150, numberOptions);
-  const height = number('Height', 300, numberOptions);
+  const width = number("Width", 150, numberOptions);
+  const height = number("Height", 300, numberOptions);
 
-  return <Skinview3d
-    className='viewer'
-    skinUrl={value}
-    height={height}
-    width={width}
-  />
+  return <Skinview3d className="viewer" skinUrl={value} height={height} width={width} />;
 };
 
 export const multiple = () => (
-  <div style={{ display: 'flex', flexDirection: 'row', }}>
+  <div style={{ display: "flex", flexDirection: "row" }}>
     <Skinview3d
-      className='viewer'
+      className="viewer"
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       height={300}
       width={120}
     />
     <Skinview3d
-      className='viewer'
+      className="viewer"
       skinUrl="textures/skin-1.8-default-no_hd.png"
       height={300}
       width={120}
     />
-    <Skinview3d
-      skinUrl="textures/skin-1.8-slim-no_hd.png"
-      height={300}
-      width={120}
-    />
+    <Skinview3d skinUrl="textures/skin-1.8-slim-no_hd.png" height={300} width={120} />
   </div>
 );
 
 export const withAnimation = () => {
-  return <Skinview3d
-    className='viewer'
-    skinUrl="textures/skin-legacyhat-default-no_hd.png"
-    height={300}
-    width={150}
-    onReady={(skinViewer: skinview3d.SkinViewer) => {
-      // Add an animation
-      skinViewer.animation = new skinview3d.WalkingAnimation();
-      // Add another animation
-      skinViewer.autoRotate = true;
-    }}
-  />
+  return (
+    <Skinview3d
+      className="viewer"
+      skinUrl="textures/skin-legacyhat-default-no_hd.png"
+      height={300}
+      width={150}
+      onReady={(skinViewer: skinview3d.SkinViewer) => {
+        // Add an animation
+        skinViewer.animation = new skinview3d.WalkingAnimation();
+        // Add another animation
+        skinViewer.autoRotate = true;
+      }}
+    />
+  );
 };
 
 export const cape = () => {
-  return <Skinview3d
-    className='viewer'
-    skinUrl="textures/skin-legacyhat-default-no_hd.png"
-    capeUrl="textures/mojang-classic-cape.png"
-    height={300}
-    width={150}
-  />
+  return (
+    <Skinview3d
+      className="viewer"
+      skinUrl="textures/skin-legacyhat-default-no_hd.png"
+      capeUrl="textures/mojang-classic-cape.png"
+      height={300}
+      width={150}
+    />
+  );
 };
 
 export const controlsDisabled = () => {
-  return <Skinview3d
-    className='viewer'
-    skinUrl="textures/skin-legacyhat-default-no_hd.png"
-    height={300}
-    width={150}
-    onReady={(skinViewer: skinview3d.SkinViewer) => {
-      skinViewer.autoRotate = false;
-      skinViewer.controls.enablePan = false;
-      skinViewer.controls.enableRotate = false;
-      skinViewer.controls.enableZoom = false;
-    }}
-  />
+  return (
+    <Skinview3d
+      className="viewer"
+      skinUrl="textures/skin-legacyhat-default-no_hd.png"
+      height={300}
+      width={150}
+      onReady={(skinViewer: skinview3d.SkinViewer) => {
+        skinViewer.autoRotate = false;
+        skinViewer.controls.enablePan = false;
+        skinViewer.controls.enableRotate = false;
+        skinViewer.controls.enableZoom = false;
+      }}
+    />
+  );
 };
