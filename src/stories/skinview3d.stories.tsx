@@ -2,6 +2,8 @@ import React from "react";
 import Skinview3d from "..";
 import { withKnobs, radios, number } from "@storybook/addon-knobs";
 import * as skinview3d from "skinview3d";
+import { useRef, useState } from "react";
+import { SkinViewer } from "skinview3d";
 
 export default {
   title: "All stories",
@@ -103,5 +105,52 @@ export const controlsDisabled = () => {
         skinViewer.controls.enableZoom = false;
       }}
     />
+  );
+};
+
+export const noPixelated = () => {
+  return (
+    <Skinview3d
+      className="viewer"
+      skinUrl="textures/skin-legacyhat-default-no_hd.png"
+      disablePixelated
+      height="300"
+      width="150"
+    />
+  );
+};
+
+export const screenshotExample = () => {
+  const [url, setUrl] = useState("");
+  const viewerRef = useRef<SkinViewer>();
+
+  const handleScreenshot = () => {
+    if (!viewerRef.current) return;
+
+    const iconUrl = viewerRef.current.canvas.toDataURL("image/png");
+
+    setUrl(iconUrl);
+  }
+
+  return (
+    <div>
+      <Skinview3d
+        className="viewer"
+        skinUrl="textures/skin-legacyhat-default-no_hd.png"
+        disablePixelated
+        height="300"
+        width="150"
+        onReady={(viewer: SkinViewer) => {
+          viewerRef.current = viewer;
+        }}
+        options={{
+          preserveDrawingBuffer: true,
+        }}
+      />
+
+      <button onClick={handleScreenshot}>Take screenshot</button>
+
+      <img src={url} />
+    </div>
   );
 };

@@ -1,4 +1,4 @@
-name: NPM
+name: CI
 
 on: push
 
@@ -12,5 +12,5 @@ jobs:
           node-version: "16"
       - name: install & build
         run: |
-          npm ci --no-optional
-          npm run build
+          yarn
+          yarn build

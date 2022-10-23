@@ -1,12 +1,19 @@
 {
   "name": "react-skinview3d",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "A React component for skinview3d Minecraft viewer",
   "author": "Hacksore",
   "license": "MIT",
   "repository": "Hacksore/react-skinview3d",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "engines": {
     "node": ">=8",
     "npm": ">=5"

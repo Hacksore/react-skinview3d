@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
+import { SkinViewerOptions } from "skinview3d";
+
 interface ISkinview3d {
   /**
    * The class names to apply to the canvas
@@ -8,23 +10,32 @@ interface ISkinview3d {
   /**
    * The width of the canvas
    */
-  width?: number;
+  width: number | string;
   /**
    * The height of the canvas
    */
-  height?: number;
+  height: number | string;
   /**
    * The skin to load in the canvas
    */
-  skinUrl?: string;
+  skinUrl: string;
   /**
-   * The cape to load in the cavas
+   * The cape to load in the canvas
    */
   capeUrl?: string;
+  /**
+   * Control if the canvas should have `pixelated` for `imageRendering` disabled
+   * @defaultValue false
+   */
+   disablePixelated?: boolean
   /**
    * A function that is called when the skin viewer is ready
    */
   onReady?: (skinview3d: skinview3d.SkinViewer) => void;
+  /**
+   * Parameters passed to the skinview3d constructor allowing you to override pr
+   */
+  options?: SkinViewerOptions
 }
 
 /**
@@ -37,6 +48,8 @@ const Skinview3d = ({
   skinUrl,
   capeUrl,
   onReady,
+  disablePixelated = false,
+  options
 }: ISkinview3d) => {
 
   const canvasRef = useRef();
@@ -45,8 +58,9 @@ const Skinview3d = ({
   useEffect(() => {
     const viewer = new skinview3d.SkinViewer({
       canvas: canvasRef.current,
-      width: width,
-      height: height,
+      width: Number(width),
+      height: Number(height),
+      ...options
     });
 
     // handle cape/skin load initially
@@ -82,7 +96,7 @@ const Skinview3d = ({
     <canvas
       className={className}
       ref={canvasRef}
-      style={{ imageRendering: "pixelated" }} // TODO: should be configurable
+      style={{ imageRendering: disablePixelated ? "auto" :  "pixelated" }}
     />
   );
 };
