@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
-import { SkinViewerOptions } from "skinview3d";
+import { SkinViewer, SkinViewerOptions } from "skinview3d";
 
 interface ISkinview3d {
   /**
@@ -52,8 +52,8 @@ const Skinview3d = ({
   options
 }: ISkinview3d) => {
 
-  const canvasRef = useRef();
-  const skinviewRef = useRef<any>();
+  const canvasRef = useRef<HTMLCanvasElement>();
+  const skinviewRef = useRef<SkinViewer>();
 
   useEffect(() => {
     const viewer = new skinview3d.SkinViewer({
@@ -67,7 +67,6 @@ const Skinview3d = ({
     skinUrl && viewer.loadSkin(skinUrl);
     capeUrl && viewer.loadCape(capeUrl);
 
-    // @ts-ignore
     skinviewRef.current = viewer;
 
     // call onReady with the viewer instance
@@ -89,7 +88,7 @@ const Skinview3d = ({
 
   // size changes
   useEffect(() => {
-    skinviewRef.current.setSize(width, height)
+    skinviewRef.current.setSize(Number(width), Number(height))
   }, [width, height]);
 
   return (
