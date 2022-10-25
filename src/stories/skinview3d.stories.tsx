@@ -111,18 +111,6 @@ export const controlsDisabled = () => {
   );
 };
 
-export const noPixelated = () => {
-  return (
-    <ReactSkinview3d
-      className="viewer"
-      skinUrl="textures/skin-legacyhat-default-no_hd.png"
-      disablePixelated
-      height="300"
-      width="150"
-    />
-  );
-};
-
 export const screenshotExample = () => {
   const [url, setUrl] = useState("");
   const viewerRef = useRef<SkinViewer>();
@@ -140,7 +128,6 @@ export const screenshotExample = () => {
       <ReactSkinview3d
         className="viewer"
         skinUrl="textures/skin-legacyhat-default-no_hd.png"
-        disablePixelated
         height="300"
         width="150"
         onReady={(viewer: SkinViewer) => {

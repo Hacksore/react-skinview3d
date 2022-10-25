@@ -6,7 +6,7 @@ export interface ReactSkinview3dOptions {
   /**
    * The class names to apply to the canvas
    */
-  className?: string,
+  className?: string;
   /**
    * The width of the canvas
    */
@@ -24,11 +24,6 @@ export interface ReactSkinview3dOptions {
    */
   capeUrl?: string;
   /**
-   * Control if the canvas should have `pixelated` for `imageRendering` disabled
-   * @defaultValue false
-   */
-   disablePixelated?: boolean
-  /**
    * A function that is called when the skin viewer is ready
    * @param {SkinViewer} instance callback function to execute when the viewer is loaded {@link SkinViewer}
    * @example
@@ -41,7 +36,7 @@ export interface ReactSkinview3dOptions {
    * Parameters passed to the skinview3d constructor allowing you to override or add extra features
    * @notes please take a look at the upstream repo for more info bs-community/skinview3d
    */
-  options?: SkinViewerOptions
+  options?: SkinViewerOptions;
 }
 
 /**
@@ -54,10 +49,8 @@ const ReactSkinview3d = ({
   skinUrl,
   capeUrl,
   onReady,
-  disablePixelated = false,
-  options
+  options,
 }: ReactSkinview3dOptions) => {
-
   const canvasRef = useRef<HTMLCanvasElement>();
   const skinviewRef = useRef<SkinViewer>();
 
@@ -66,7 +59,7 @@ const ReactSkinview3d = ({
       canvas: canvasRef.current,
       width: Number(width),
       height: Number(height),
-      ...options
+      ...options,
     });
 
     // handle cape/skin load initially
@@ -79,7 +72,6 @@ const ReactSkinview3d = ({
     if (onReady) {
       onReady(viewer);
     }
-
   }, []);
 
   // skin url changes
@@ -94,16 +86,10 @@ const ReactSkinview3d = ({
 
   // size changes
   useEffect(() => {
-    skinviewRef.current.setSize(Number(width), Number(height))
+    skinviewRef.current.setSize(Number(width), Number(height));
   }, [width, height]);
 
-  return (
-    <canvas
-      className={className}
-      ref={canvasRef}
-      style={{ imageRendering: disablePixelated ? "auto" :  "pixelated" }}
-    />
-  );
+  return <canvas className={className} ref={canvasRef} />;
 };
 
 export default ReactSkinview3d;
