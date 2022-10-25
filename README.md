@@ -13,7 +13,7 @@ npm install react-skinview3d
 ## Usage
 
 ```jsx
-import React, { Component } from "react"
+import React from "react"
 import ReactSkinview3d from "react-skinview3d"
 
 const App () => {
