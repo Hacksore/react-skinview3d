@@ -2,7 +2,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "rollup-plugin-babel";
 import typescript from "@rollup/plugin-typescript";
-import packageJson from "./package.json";
+import packageJson from "./package.json" assert { type: "json" };
 
 const external = [
   ...Object.keys(packageJson.dependencies || {}),
@@ -25,7 +25,12 @@ export default {
     },
   ],
   external,
-  plugins: [resolve(), typescript({
-    tsconfig: './tsconfig.json'
-  }), babel(), commonjs()],
+  plugins: [
+    resolve(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+    }),
+    babel(),
+    commonjs(),
+  ],
 };
