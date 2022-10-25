@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
 import { SkinViewer, SkinViewerOptions } from "skinview3d";
 
-interface ISkinview3d {
+interface ReactSkinview3dOptions {
   /**
    * The class names to apply to the canvas
    */
@@ -41,7 +41,7 @@ interface ISkinview3d {
 /**
  * A skinview3d component
  */
-const Skinview3d = ({
+const ReactSkinview3d = ({
   className,
   width,
   height,
@@ -50,7 +50,7 @@ const Skinview3d = ({
   onReady,
   disablePixelated = false,
   options
-}: ISkinview3d) => {
+}: ReactSkinview3dOptions) => {
 
   const canvasRef = useRef<HTMLCanvasElement>();
   const skinviewRef = useRef<SkinViewer>();
@@ -100,4 +100,4 @@ const Skinview3d = ({
   );
 };
 
-export default Skinview3d;
+export default ReactSkinview3d;

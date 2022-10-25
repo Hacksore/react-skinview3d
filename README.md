@@ -7,19 +7,19 @@ Three.js powered Minecraft skin viewer component for react - see upstream projec
 ## Install
 
 ```bash
-npm install --save react-skinview3d
+npm install react-skinview3d
 ```
 
 ## Usage
 
 ```jsx
 import React, { Component } from "react"
-import Skinview3d from "react-skinview3d"
+import ReactSkinview3d from "react-skinview3d"
 
 const App () => {
 
   return (
-    <Skinview3d
+    <ReactSkinview3d
       skinUrl="textures/skin-1.8-slim-no_hd.png"
       capeUrl="textures/minecon-cape-2016.png"
       height="500"

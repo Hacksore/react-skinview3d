@@ -1,5 +1,5 @@
 import React from "react";
-import Skinview3d from "..";
+import ReactSkinview3d from "..";
 import { withKnobs, radios, number } from "@storybook/addon-knobs";
 import * as skinview3d from "skinview3d";
 import { useRef, useState } from "react";
@@ -12,7 +12,7 @@ export default {
 };
 
 export const basic = () => (
-  <Skinview3d
+  <ReactSkinview3d
     skinUrl="textures/skin-legacyhat-default-no_hd.png"
     height={300}
     width={150}
@@ -23,7 +23,6 @@ export const basic = () => (
 );
 
 export const basicWithKnobs = () => {
-
   // TODO: move to controls instead of knobs
   // TIHI
   const options: RadiosTypeOptionsProp<string> = {
@@ -31,7 +30,7 @@ export const basicWithKnobs = () => {
     "skin-1.8-default-no_hd.png": "textures/skin-1.8-default-no_hd.png",
     "skin-1.8-slim-no_hd.png": "textures/skin-1.8-slim-no_hd.png",
     "skin-old-default-no_hd.png": "textures/skin-old-default-no_hd.png",
-  }
+  };
 
   const value = radios("Skin URL", options, "textures/skin-legacyhat-default-no_hd.png");
 
@@ -45,30 +44,30 @@ export const basicWithKnobs = () => {
   const width = number("Width", 150, numberOptions);
   const height = number("Height", 300, numberOptions);
 
-  return <Skinview3d className="viewer" skinUrl={value} height={height} width={width} />;
+  return <ReactSkinview3d className="viewer" skinUrl={value} height={height} width={width} />;
 };
 
 export const multiple = () => (
   <div style={{ display: "flex", flexDirection: "row" }}>
-    <Skinview3d
+    <ReactSkinview3d
       className="viewer"
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       height={300}
       width={120}
     />
-    <Skinview3d
+    <ReactSkinview3d
       className="viewer"
       skinUrl="textures/skin-1.8-default-no_hd.png"
       height={300}
       width={120}
     />
-    <Skinview3d skinUrl="textures/skin-1.8-slim-no_hd.png" height={300} width={120} />
+    <ReactSkinview3d skinUrl="textures/skin-1.8-slim-no_hd.png" height={300} width={120} />
   </div>
 );
 
 export const withAnimation = () => {
   return (
-    <Skinview3d
+    <ReactSkinview3d
       className="viewer"
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       height={300}
@@ -85,7 +84,7 @@ export const withAnimation = () => {
 
 export const cape = () => {
   return (
-    <Skinview3d
+    <ReactSkinview3d
       className="viewer"
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       capeUrl="textures/mojang-classic-cape.png"
@@ -97,7 +96,7 @@ export const cape = () => {
 
 export const controlsDisabled = () => {
   return (
-    <Skinview3d
+    <ReactSkinview3d
       className="viewer"
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       height={300}
@@ -114,7 +113,7 @@ export const controlsDisabled = () => {
 
 export const noPixelated = () => {
   return (
-    <Skinview3d
+    <ReactSkinview3d
       className="viewer"
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       disablePixelated
@@ -134,11 +133,11 @@ export const screenshotExample = () => {
     const iconUrl = viewerRef.current.canvas.toDataURL("image/png");
 
     setUrl(iconUrl);
-  }
+  };
 
   return (
     <div>
-      <Skinview3d
+      <ReactSkinview3d
         className="viewer"
         skinUrl="textures/skin-legacyhat-default-no_hd.png"
         disablePixelated
