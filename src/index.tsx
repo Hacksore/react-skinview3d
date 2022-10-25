@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import * as skinview3d from "skinview3d";
-import { SkinViewer, SkinViewerOptions } from "skinview3d";
+import type { SkinViewer, SkinViewerOptions } from "skinview3d";
 
-interface ReactSkinview3dOptions {
+export interface ReactSkinview3dOptions {
   /**
    * The class names to apply to the canvas
    */
@@ -30,10 +30,16 @@ interface ReactSkinview3dOptions {
    disablePixelated?: boolean
   /**
    * A function that is called when the skin viewer is ready
+   * @param {SkinViewer} instance callback function to execute when the viewer is loaded {@link SkinViewer}
+   * @example
+   * onReady((instance) => {
+   *  console.log(instance)
+   * })
    */
   onReady?: (skinview3d: skinview3d.SkinViewer) => void;
   /**
-   * Parameters passed to the skinview3d constructor allowing you to override pr
+   * Parameters passed to the skinview3d constructor allowing you to override or add extra features
+   * @notes please take a look at the upstream repo for more info bs-community/skinview3d
    */
   options?: SkinViewerOptions
 }
