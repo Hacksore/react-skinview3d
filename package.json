@@ -15,8 +15,8 @@
     }
   },
   "engines": {
-    "node": ">=8",
-    "npm": ">=5"
+    "node": ">=16",
+    "yarn": ">=1"
   },
   "scripts": {
     "lint": "eslint 'src/**/*.tsx'",
