@@ -47,7 +47,8 @@ export interface ReactSkinview3dOptions {
   onReady?: ({ viewer, canvasRef }: ViewerReadyCallbackOptions) => void;
   /**
    * Parameters passed to the skinview3d constructor allowing you to override or add extra features
-   * @notes please take a look at the upstream repo for more info bs-community/skinview3d
+   * @notes please take a look at the upstream repo for more info
+   * [bs-community/skinview3d](https://bs-community.github.io/skinview3d/)
    */
   options?: SkinViewerOptions;
 }
