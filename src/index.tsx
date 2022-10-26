@@ -1,6 +1,19 @@
 import React, { useEffect, useRef } from "react";
-import * as skinview3d from "skinview3d";
-import type { SkinViewer, SkinViewerOptions } from "skinview3d";
+import { SkinViewer, SkinViewerOptions } from "skinview3d";
+
+/**
+ * This is the interface that describes the parameter in `onReady`
+ */
+export interface ViewerReadyCallbackOptions {
+  /**
+   * The instance of the skinview3d
+   */
+  viewer: SkinViewer;
+  /**
+   * The ref to the canvas element
+   */
+  canvasRef: HTMLCanvasElement;
+}
 
 export interface ReactSkinview3dOptions {
   /**
@@ -31,7 +44,7 @@ export interface ReactSkinview3dOptions {
    *  console.log(instance)
    * })
    */
-  onReady?: (skinview3d: skinview3d.SkinViewer) => void;
+  onReady?: ({ viewer, canvasRef }: ViewerReadyCallbackOptions) => void;
   /**
    * Parameters passed to the skinview3d constructor allowing you to override or add extra features
    * @notes please take a look at the upstream repo for more info bs-community/skinview3d
@@ -55,7 +68,7 @@ const ReactSkinview3d = ({
   const skinviewRef = useRef<SkinViewer>();
 
   useEffect(() => {
-    const viewer = new skinview3d.SkinViewer({
+    const viewer = new SkinViewer({
       canvas: canvasRef.current,
       width: Number(width),
       height: Number(height),
@@ -70,7 +83,7 @@ const ReactSkinview3d = ({
 
     // call onReady with the viewer instance
     if (onReady) {
-      onReady(viewer);
+      onReady({ viewer: skinviewRef.current, canvasRef: canvasRef.current });
     }
   }, []);
 

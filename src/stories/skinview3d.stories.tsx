@@ -1,7 +1,7 @@
 import React from "react";
 import ReactSkinview3d from "..";
 import { withKnobs, radios, number } from "@storybook/addon-knobs";
-import * as skinview3d from "skinview3d";
+import { WalkingAnimation } from "skinview3d";
 import { useRef, useState } from "react";
 import { SkinViewer } from "skinview3d";
 import { RadiosTypeOptionsProp } from "@storybook/addon-knobs/dist/components/types";
@@ -12,14 +12,7 @@ export default {
 };
 
 export const basic = () => (
-  <ReactSkinview3d
-    skinUrl="textures/skin-legacyhat-default-no_hd.png"
-    height={300}
-    width={150}
-    onReady={(instance: skinview3d.SkinViewer) => {
-      console.log(instance);
-    }}
-  />
+  <ReactSkinview3d skinUrl="textures/skin-legacyhat-default-no_hd.png" height={300} width={150} />
 );
 
 export const basicWithKnobs = () => {
@@ -72,11 +65,11 @@ export const withAnimation = () => {
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       height={300}
       width={150}
-      onReady={(skinViewer: skinview3d.SkinViewer) => {
+      onReady={({ viewer }) => {
         // Add an animation
-        skinViewer.animation = new skinview3d.WalkingAnimation();
-        // Add another animation
-        skinViewer.autoRotate = true;
+        viewer.animation = new WalkingAnimation();
+        // Enabled auto rotate
+        viewer.autoRotate = true;
       }}
     />
   );
@@ -101,11 +94,11 @@ export const controlsDisabled = () => {
       skinUrl="textures/skin-legacyhat-default-no_hd.png"
       height={300}
       width={150}
-      onReady={(skinViewer: skinview3d.SkinViewer) => {
-        skinViewer.autoRotate = false;
-        skinViewer.controls.enablePan = false;
-        skinViewer.controls.enableRotate = false;
-        skinViewer.controls.enableZoom = false;
+      onReady={({ viewer }) => {
+        viewer.autoRotate = false;
+        viewer.controls.enablePan = false;
+        viewer.controls.enableRotate = false;
+        viewer.controls.enableZoom = false;
       }}
     />
   );
@@ -130,7 +123,7 @@ export const screenshotExample = () => {
         skinUrl="textures/skin-legacyhat-default-no_hd.png"
         height="300"
         width="150"
-        onReady={(viewer: SkinViewer) => {
+        onReady={({ viewer }) => {
           viewerRef.current = viewer;
         }}
         options={{
