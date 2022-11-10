@@ -137,3 +137,15 @@ export const screenshotExample = () => {
     </div>
   );
 };
+
+export const base64 = () => {
+  const base64SkinImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgCAYAAACinX6EAAACeElEQVRoQ+2YsU7DMBCG464UIdSJoRlgRixsSBW0gqFC5dEYGHgR1A2JkQGpQioji7OwVAKpc8M5jYvt2GcnTpO0xShqqePL+fN/d3ZIEMNfnY0EZM2PH4D9Z9MzyA4AOIHJf+4yAKYwo8o3QQG2ELWF0NYDaGErbMsvm6AA2xy8+v8B7EAVQBXSBAWIMcwTXqG47nQ6i9lsxpKe83h3AAR8i9OEK373ikAYTCRnvQCAtUVisXQAugmXBeEPgFrunFeRrUH7oL2Y/8zFkug03q4APlGdAsqAIAAYDoeJnsbjMftwmgAXIAPQu+glAPKMtwPwlbht/PIswC4mX7HlAqDZCziNbwoANnGvENCMt+0QE9juAJjcxcYTom2Fbf3yaRDdttpMFel3B1DEusuY7HG4Ugg6mUhLHceZs0iLEFUOsjaweWvsSbeDbTR2u93uyqEoirKBI5dVnSvH8GMPrnO43jYaAJtdRAGC2OwAlNuzjFAFwAodwpBvZJXR46uDAo7A9pfJvqiAsgCcgaH39IFMHtLbk6aFAPgXA4QVnzIUYHvhgKYy5kwSi9BEx7BBvver47H/oQ/NKd4ZVweAO6RC4IBMDue932Yv9a16AJTSAHKFXBqgmoRhmPxWJQAKCgBPkHeCSCeq/bRTp4AmAaglBPIC2L9b5pCPh5RqKp4wTXZ5Yl5VWG0AdOoxhcBWAsiTA9YM4AoW48UUzmupAk0KAUohCbITj6E1AkDRsulSBh+j6PQ2CKaVAig6oVr2AaPRyGsnOJlMSqvrJgAu5dh0j6kKwBb/8mYweCLwxQsAz+w+TqLbZvW0l/dBhtPhdb8/f53e7/0CBtH0QFVW1GkAAAAASUVORK5CYII=";
+  return (
+    <ReactSkinview3d
+      className="viewer"
+      skinUrl={base64SkinImage}
+      height={300}
+      width={150}
+    />
+  );
+};
