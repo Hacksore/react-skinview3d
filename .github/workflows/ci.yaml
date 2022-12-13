@@ -6,7 +6,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    concurrency:
+      group: ci
+      cancel-in-progress: true
+    runs-on: ubuntu-latest      
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
