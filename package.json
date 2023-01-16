@@ -35,7 +35,7 @@
     "@babel/plugin-transform-react-jsx": "^7.14.9",
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
-    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^10.0.1",
     "@storybook/addon-actions": "^6.5.13",
