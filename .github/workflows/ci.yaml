@@ -6,9 +6,6 @@ on:
 
 jobs:
   build:
-    concurrency:
-      group: ci
-      cancel-in-progress: true
     runs-on: ubuntu-latest      
     steps:
       - uses: actions/checkout@v3
