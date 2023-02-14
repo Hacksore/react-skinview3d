@@ -7,7 +7,7 @@ Three.js powered Minecraft skin viewer component for ReactJS powered by [skinvie
 
 Try on codesandbox.io
 
-[![CodeSandbox](https://img.shields.io/badge/Codesandbox-040404?style=for-the-badge&logo=codesandbox&logoColor=DBDBDB)](https://codesandbox.io/s/react-skinview3d-vb7f88?file=/src/App.tsx)
+[![CodeSandbox](https://img.shields.io/badge/Codesandbox-040404?style=for-the-badge&logo=codesandbox&logoColor=DBDBDB)](https://codesandbox.io/p/sandbox/react-skinview3d-t68jsw)
 ## Install
 
 ```bash
