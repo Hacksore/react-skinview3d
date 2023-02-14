@@ -1,6 +1,6 @@
 # react-skinview3d
 
-Three.js powered Minecraft skin viewer component for react - see upstream project for more info [skinview3d](https://github.com/bs-community/skinview3d)
+Three.js powered Minecraft skin viewer component for ReactJS powered by [skinview3d](https://github.com/bs-community/skinview3d)
 
 [![NPM](https://img.shields.io/npm/v/react-skinview3d.svg)](https://www.npmjs.com/package/react-skinview3d)
 [![npm stats](https://img.shields.io/npm/dw/react-skinview3d)](https://www.npmjs.com/package/react-skinview3d)
@@ -35,6 +35,9 @@ const App = () => {
 
 export default App;
 ```
+
+## Usage
+See the [storybook demos](https://hacksore.github.io/react-skinview3d/?path=/story/all-stories--basic) for more examples on how to use the library
 
 ## License
 
