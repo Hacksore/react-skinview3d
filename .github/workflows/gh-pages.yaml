@@ -1,4 +1,4 @@
-name: Pages
+name: pages
 
 on: 
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-deploy:
+  deploy:
     concurrency:
       group: pages
       cancel-in-progress: true
