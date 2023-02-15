@@ -1,4 +1,4 @@
-name: NPM
+name: npm
 
 on:
   release:
