@@ -64,7 +64,7 @@ const ReactSkinview3d = ({
   capeUrl,
   onReady,
   options,
-}: ReactSkinview3dOptions) => {
+}: ReactSkinview3dOptions): JSX.Element => {
   const canvasRef = useRef<HTMLCanvasElement>();
   const skinviewRef = useRef<SkinViewer>();
 
