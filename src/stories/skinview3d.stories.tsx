@@ -43,6 +43,7 @@ export const Multiple: Story = {
     </div>
   ),
 };
+
 export const Animation: Story = {
   render: () => (
     <ReactSkinview3d

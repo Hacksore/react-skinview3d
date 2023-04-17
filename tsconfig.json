@@ -12,6 +12,6 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "include": ["src/index.tsx"],
+  "include": ["src/**/*.tsx"],
   "exclude": ["node_modules", "build"]
 }
