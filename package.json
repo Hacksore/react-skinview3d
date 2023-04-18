@@ -39,7 +39,7 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^11.0.0",
     "@storybook/addon-actions": "^6.5.13",
-    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-essentials": "^7.0.5",
     "@storybook/addon-knobs": "^6.3.1",
     "@storybook/addon-links": "^7.0.2",
     "@storybook/addons": "^6.5.13",
