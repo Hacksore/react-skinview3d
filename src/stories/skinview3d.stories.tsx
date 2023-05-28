@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import ReactSkinview3d from "..";
-import { WalkingAnimation } from "skinview3d";
+import { SkinViewer, WalkingAnimation } from "skinview3d";
 
-const meta = {
+const meta: Meta<typeof ReactSkinview3d> = {
   title: "Examples",
   component: ReactSkinview3d,
   tags: ["autodocs"],
