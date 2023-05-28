@@ -8,7 +8,7 @@ env:
   NODE_NO_WARNINGS: 1
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
