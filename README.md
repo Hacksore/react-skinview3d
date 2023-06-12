@@ -37,7 +37,7 @@ export default App;
 ```
 
 ## Usage
-See the [storybook demos](https://hacksore.github.io/react-skinview3d/?path=/story/all-stories--basic) for more examples on how to use the library
+See the [storybook demos](https://hacksore.github.io/react-skinview3d) for more examples on how to use the library
 
 ## License
 
