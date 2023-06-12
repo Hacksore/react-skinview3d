@@ -15,8 +15,7 @@
     }
   },
   "engines": {
-    "node": ">=16",
-    "yarn": ">=1"
+    "node": ">=16"
   },
   "scripts": {
     "lint": "eslint 'src/**/*.tsx'",
@@ -34,15 +33,15 @@
     "@storybook/addon-controls": "^7.0.5",
     "@storybook/addon-essentials": "^7.0.5",
     "@storybook/addon-links": "^7.0.5",
-    "@storybook/blocks": "^7.0.5",
     "@storybook/react": "^7.0.5",
     "@storybook/react-vite": "^7.0.5",
-    "@storybook/testing-library": "^0.1.0",
     "@types/react": "^18.0.35",
     "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
     "@vitejs/plugin-react": "^4.0.0",
-    "prop-types": "^15.8.1",
-    "rollup": "^3.15.0",
+    "eslint-plugin-react": "^7.32.2",
+    "rollup": "^3.24.1",
     "storybook": "^7.0.5",
     "typescript": "^5.0.4",
     "vite": "^4.2.0"
