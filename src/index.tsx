@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { SkinViewer, SkinViewerOptions } from "skinview3d";
-
-// TODO: support jsx transform
 
 /**
  * This is the interface that describes the parameter in `onReady`
