@@ -17,11 +17,13 @@ export default {
       format: "cjs",
       exports: "auto",
       sourcemap: true,
+      banner: '"use client";',
     },
     {
       file: packageJson.module,
       format: "esm",
       sourcemap: true,
+      banner: '"use client";',
     },
   ],
   external,
@@ -31,6 +33,8 @@ export default {
       tsconfig: "./tsconfig.json",
     }),
     commonjs(),
-    terser(),
+    terser({
+      compress: { directives: false },
+    }),
   ],
 };
