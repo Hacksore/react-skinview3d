@@ -96,3 +96,35 @@ export const Screenshot: Story = {
     );
   },
 };
+
+export const ButtonWithUuid: Story = {
+  render: () => {
+    const [uuid, setUuid] = useState("generate a new UUID...");
+    const viewerRef = useRef<SkinViewer>();
+
+    return (
+      <div>
+        <button
+          onClick={() => {
+            setUuid(window.crypto.randomUUID());
+          }}
+        >
+          Make UUID
+        </button>
+        <div>{uuid}</div>
+        <ReactSkinview3d
+          className="viewer"
+          skinUrl="textures/skin-legacyhat-default-no_hd.png"
+          height="300"
+          width="150"
+          onReady={({ viewer }) => {
+            viewerRef.current = viewer;
+          }}
+          options={{
+            preserveDrawingBuffer: true,
+          }}
+        />
+      </div>
+    );
+  },
+};
