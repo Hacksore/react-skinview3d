@@ -3,6 +3,7 @@ name: CI
 on:
   push:
   workflow_dispatch:
+  pull_request:
 
 env:
   NODE_NO_WARNINGS: 1
