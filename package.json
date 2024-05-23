@@ -21,7 +21,7 @@
     "lint": "eslint 'src/**/*.tsx'",
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "format": "prettier --write --ignore-unknown src/**/*",
+    "format": "prettier --write --ignore-unknown 'src/**/*'",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
