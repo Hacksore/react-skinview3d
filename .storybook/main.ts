@@ -3,8 +3,7 @@ const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-essentials",
-    "@storybook/addon-controls",
-    "@chromatic-com/storybook"
+    "@storybook/addon-controls"
   ],
 
   framework: {
