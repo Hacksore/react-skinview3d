@@ -7,10 +7,7 @@ on:
       - master
 
 jobs:
-  deploy:
-    concurrency:
-      group: pages
-      cancel-in-progress: true
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,13 +29,26 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
       - name: Install
         run: pnpm i
       - name: Build
         run: pnpm build-storybook
-      - name: Deploy to pages branch
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload your page as github pages artifact
+        uses: actions/upload-pages-artifact@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./storybook-static
+          path: storybook-static
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to pages branch
+        uses: actions/deploy-pages@v4
