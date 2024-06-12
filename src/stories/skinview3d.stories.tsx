@@ -109,7 +109,7 @@ export const ButtonWithUuid: Story = {
             setUuid(window.crypto.randomUUID());
           }}
         >
-          Make UUID
+          Make UUID (test)
         </button>
         <div>{uuid}</div>
         <ReactSkinview3d
