@@ -5,6 +5,7 @@
   "author": "Hacksore",
   "license": "MIT",
   "repository": "Hacksore/react-skinview3d",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "exports": {
@@ -15,7 +16,7 @@
     }
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=22"
   },
   "scripts": {
     "lint": "eslint 'src/**/*.tsx'",
