@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": []
+    "ignore": ["storybook-static"]
   },
   "formatter": {
     "enabled": true,
