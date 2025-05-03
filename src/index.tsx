@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { SkinViewer, SkinViewerOptions } from "skinview3d";
+import { SkinViewer, type SkinViewerOptions } from "skinview3d";
 
 /**
  * This is the interface that describes the parameter in `onReady`
@@ -68,6 +68,7 @@ const ReactSkinview3d = ({
   const canvasRef = useRef<HTMLCanvasElement>();
   const skinviewRef = useRef<SkinViewer>();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     const viewer = new SkinViewer({
       canvas: canvasRef.current,
