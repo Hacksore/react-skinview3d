@@ -66,8 +66,8 @@ const ReactSkinview3d = ({
   onReady,
   options,
 }: ReactSkinview3dOptions): React.ReactElement => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const skinviewRef = useRef<SkinViewer>(undefined);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const skinviewRef = useRef<SkinViewer>(null);
 
   useEffect(() => {
     // skip if the viewer instance has already been created
