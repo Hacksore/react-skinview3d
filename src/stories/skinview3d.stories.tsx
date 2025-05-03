@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import ReactSkinview3d from "..";
-import { SkinViewer, WalkingAnimation } from "skinview3d";
+import type { SkinViewer} from "skinview3d";
+import { WalkingAnimation } from "skinview3d";
 
 const meta: Meta<typeof ReactSkinview3d> = {
   title: "Examples",
@@ -68,7 +69,7 @@ export const Animation: Story = {
 export const Screenshot: Story = {
   render: () => {
     const [url, setUrl] = useState("");
-    const viewerRef = useRef<SkinViewer>();
+    const viewerRef = useRef<SkinViewer|null>(null);
 
     const handleScreenshot = () => {
       if (!viewerRef.current) return;
@@ -93,42 +94,10 @@ export const Screenshot: Story = {
           }}
         />
 
-        <button onClick={handleScreenshot}>Take screenshot</button>
+        <button type="button" onClick={handleScreenshot}>Take screenshot</button>
 
-        <img src={url} />
-      </div>
-    );
-  },
-};
-
-export const ButtonWithUuid: Story = {
-  render: () => {
-    const [uuid, setUuid] = useState("generate a new UUID...");
-    const viewerRef = useRef<SkinViewer>();
-
-    return (
-      <div>
-        <button
-          onClick={() => {
-            setUuid(window.crypto.randomUUID());
-          }}
-        >
-          Make UUID (test)
-        </button>
-        <div>{uuid}</div>
-        <ReactSkinview3d
-          className="viewer"
-          skinUrl="textures/skin-legacyhat-default-no_hd.png"
-          height="300"
-          width="150"
-          onReady={({ viewer }) => {
-            viewerRef.current = viewer;
-          }}
-          options={{
-            preserveDrawingBuffer: true,
-          }}
-        />
-      </div>
+        <img alt="screenshot" src={url} />
+      </div >
     );
   },
 };
