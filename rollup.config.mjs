@@ -17,12 +17,16 @@ export default {
       format: "cjs",
       exports: "auto",
       sourcemap: true,
+      // NOTE: for supporting RSC
+      // eslint-disable-next-line quotes
       banner: '"use client";',
     },
     {
       file: packageJson.module,
       format: "esm",
       sourcemap: true,
+      // NOTE: for supporting RSC
+      // eslint-disable-next-line quotes
       banner: '"use client";',
     },
   ],
