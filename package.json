@@ -1,6 +1,6 @@
 {
   "name": "react-skinview3d",
-  "version": "6.0.0-alpha.1",
+  "version": "6.0.0",
   "description": "A React component for skinview3d Minecraft viewer",
   "author": "Hacksore",
   "license": "MIT",
@@ -41,7 +41,9 @@
     "storybook": "^8.6.12",
     "typescript": "5.8.3"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
