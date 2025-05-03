@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import ReactSkinview3d from "..";
-import type { SkinViewer} from "skinview3d";
+import type { SkinViewer } from "skinview3d";
 import { WalkingAnimation } from "skinview3d";
 
 const meta: Meta<typeof ReactSkinview3d> = {
@@ -69,7 +69,7 @@ export const Animation: Story = {
 export const Screenshot: Story = {
   render: () => {
     const [url, setUrl] = useState("");
-    const viewerRef = useRef<SkinViewer|null>(null);
+    const viewerRef = useRef<SkinViewer>(null);
 
     const handleScreenshot = () => {
       if (!viewerRef.current) return;
@@ -94,10 +94,12 @@ export const Screenshot: Story = {
           }}
         />
 
-        <button type="button" onClick={handleScreenshot}>Take screenshot</button>
+        <button type="button" onClick={handleScreenshot}>
+          Take screenshot
+        </button>
 
         <img alt="screenshot" src={url} />
-      </div >
+      </div>
     );
   },
 };

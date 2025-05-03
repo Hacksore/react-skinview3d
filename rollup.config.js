@@ -23,7 +23,7 @@ export default {
   plugins: [
     resolve(),
     typescript({
-      tsconfig: "./tsconfig.json"
+      tsconfig: "./tsconfig.json",
     }),
     commonjs(),
     terser({
