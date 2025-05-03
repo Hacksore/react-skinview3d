@@ -4,11 +4,9 @@
 const config = {
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],
-  extends: [
-    "plugin:@typescript-eslint/recommended"
-  ],
+  extends: ["plugin:@typescript-eslint/recommended"],
   rules: {
-    "quotes": ["error", "double"],
+    quotes: ["error", "double"],
   },
 };
 

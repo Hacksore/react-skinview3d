@@ -39,7 +39,11 @@ export const Multiple: Story = {
         height={300}
         width={120}
       />
-      <ReactSkinview3d skinUrl="textures/skin-1.8-slim-no_hd.png" height={300} width={120} />
+      <ReactSkinview3d
+        skinUrl="textures/skin-1.8-slim-no_hd.png"
+        height={300}
+        width={120}
+      />
     </div>
   ),
 };

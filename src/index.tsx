@@ -90,12 +90,16 @@ const ReactSkinview3d = ({
 
   // skin url changes
   useEffect(() => {
-    skinUrl ? skinviewRef.current.loadSkin(skinUrl) : skinviewRef.current.resetSkin();
+    skinUrl
+      ? skinviewRef.current.loadSkin(skinUrl)
+      : skinviewRef.current.resetSkin();
   }, [skinUrl]);
 
   // cape url changes
   useEffect(() => {
-    capeUrl ? skinviewRef.current.loadCape(capeUrl) : skinviewRef.current.resetCape();
+    capeUrl
+      ? skinviewRef.current.loadCape(capeUrl)
+      : skinviewRef.current.resetCape();
   }, [capeUrl]);
 
   // size changes
