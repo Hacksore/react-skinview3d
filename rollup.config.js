@@ -12,7 +12,7 @@ const external = [
 export default {
   input: "./src/index.tsx",
   output: {
-    file: packageJson.module,
+    file: packageJson.exports["."].import,
     format: "esm",
     sourcemap: true,
     // NOTE: for supporting RSC

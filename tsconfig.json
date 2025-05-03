@@ -13,5 +13,11 @@
     "esModuleInterop": true
   },
   "include": ["src/**/*.tsx"],
-  "exclude": ["node_modules", "build", ".storybook"]
+  "exclude": [
+    "node_modules",
+    "build",
+    ".storybook",
+    "**/*.stories.tsx",
+    "**/*.stories.ts"
+  ]
 }

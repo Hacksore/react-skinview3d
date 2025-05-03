@@ -6,13 +6,10 @@
   "license": "MIT",
   "repository": "Hacksore/react-skinview3d",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js"
     }
   },
   "engines": {
