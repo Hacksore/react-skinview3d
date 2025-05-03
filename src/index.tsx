@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { SkinViewer, SkinViewerOptions } from "skinview3d";
+import { SkinViewer, type SkinViewerOptions } from "skinview3d";
+import type { HTMLAttributes } from "react";
 
 /**
  * This is the interface that describes the parameter in `onReady`
@@ -19,7 +20,7 @@ export interface ReactSkinview3dOptions {
   /**
    * The class names to apply to the canvas
    */
-  className?: string;
+  className?: HTMLAttributes<HTMLCanvasElement>["className"];
   /**
    * The width of the canvas
    */
@@ -64,11 +65,16 @@ const ReactSkinview3d = ({
   capeUrl,
   onReady,
   options,
-}: ReactSkinview3dOptions): JSX.Element => {
-  const canvasRef = useRef<HTMLCanvasElement>();
-  const skinviewRef = useRef<SkinViewer>();
+}: ReactSkinview3dOptions): React.ReactElement => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const skinviewRef = useRef<SkinViewer>(null);
 
   useEffect(() => {
+    // skip if the viewer instance has already been created
+    if (skinviewRef.current) {
+      return;
+    }
+
     const viewer = new SkinViewer({
       canvas: canvasRef.current,
       width: Number(width),
@@ -86,16 +92,20 @@ const ReactSkinview3d = ({
     if (onReady) {
       onReady({ viewer: skinviewRef.current, canvasRef: canvasRef.current });
     }
-  }, []);
+  }, [width, height, skinUrl, capeUrl, onReady, options]);
 
   // skin url changes
   useEffect(() => {
-    skinUrl ? skinviewRef.current.loadSkin(skinUrl) : skinviewRef.current.resetSkin();
+    skinUrl
+      ? skinviewRef.current.loadSkin(skinUrl)
+      : skinviewRef.current.resetSkin();
   }, [skinUrl]);
 
   // cape url changes
   useEffect(() => {
-    capeUrl ? skinviewRef.current.loadCape(capeUrl) : skinviewRef.current.resetCape();
+    capeUrl
+      ? skinviewRef.current.loadCape(capeUrl)
+      : skinviewRef.current.resetCape();
   }, [capeUrl]);
 
   // size changes

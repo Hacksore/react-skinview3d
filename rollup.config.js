@@ -2,7 +2,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
-import packageJson from "./package.json" assert { type: "json" };
+import packageJson from "./package.json" with { type: "json" };
 
 const external = [
   ...Object.keys(packageJson.dependencies || {}),
@@ -11,21 +11,14 @@ const external = [
 
 export default {
   input: "./src/index.tsx",
-  output: [
-    {
-      file: packageJson.main,
-      format: "cjs",
-      exports: "auto",
-      sourcemap: true,
-      banner: '"use client";',
-    },
-    {
-      file: packageJson.module,
-      format: "esm",
-      sourcemap: true,
-      banner: '"use client";',
-    },
-  ],
+  output: {
+    file: packageJson.exports["."].import,
+    format: "esm",
+    sourcemap: true,
+    // NOTE: for supporting RSC
+    // eslint-disable-next-line quotes
+    banner: '"use client";',
+  },
   external,
   plugins: [
     resolve(),
