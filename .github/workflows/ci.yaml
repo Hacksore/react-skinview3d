@@ -7,9 +7,6 @@ on:
   workflow_dispatch:
   pull_request:
 
-env:
-  NODE_NO_WARNINGS: 1
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,10 +15,10 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - uses: pnpm/action-setup@v2
         with:
-          version: 9
+          version: 10
       - name: Get pnpm store directory
         shell: bash
         run: |
