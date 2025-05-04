@@ -3,59 +3,70 @@ import { SkinViewer, type SkinViewerOptions } from "skinview3d";
 import type { HTMLAttributes } from "react";
 
 /**
- * This is the interface that describes the parameter in `onReady`
+ * Interface describing the callback parameters when the skin viewer is ready
  */
 export interface ViewerReadyCallbackOptions {
   /**
-   * The instance of the skinview3d
+   * The instance of the skinview3d viewer that can be used to control the skin display
    */
   viewer: SkinViewer;
   /**
-   * The ref to the canvas element
+   * The reference to the canvas element where the skin is rendered
    */
   canvasRef: HTMLCanvasElement;
 }
 
+/**
+ * Props interface for the ReactSkinview3d component
+ */
 export interface ReactSkinview3dOptions {
   /**
-   * The class names to apply to the canvas
+   * CSS class names to apply to the canvas element
    */
   className?: HTMLAttributes<HTMLCanvasElement>["className"];
   /**
-   * The width of the canvas
+   * The width of the canvas in pixels or as a CSS value
    */
   width: number | string;
   /**
-   * The height of the canvas
+   * The height of the canvas in pixels or as a CSS value
    */
   height: number | string;
   /**
-   * The skin to load in the canvas
+   * URL of the Minecraft skin texture to display
    */
   skinUrl: string;
   /**
-   * The cape to load in the canvas
+   * Optional URL of the Minecraft cape texture to display
    */
   capeUrl?: string;
   /**
-   * A function that is called when the skin viewer is ready
-   * @param {SkinViewer} instance callback function to execute when the viewer is loaded {@link SkinViewer}
+   * A callback function that is called when the skin viewer is ready
+   * @param {ViewerReadyCallbackOptions} options - The options object containing the viewer instance and canvas reference
+   * @param {SkinViewer} options.viewer - The instance of the skinview3d viewer
+   * @param {HTMLCanvasElement} options.canvasRef - The reference to the canvas element
    * @example
-   * onReady((instance) => {
-   *  console.log(instance)
-   * })
+   * ```tsx
+   * onReady={({ viewer, canvasRef }) => {
+   *   // Access the viewer instance
+   *   viewer.autoRotate = true;
+   *   // Access the canvas element
+   *   console.log(canvasRef);
+   * }}
+   * ```
    */
   onReady?: ({ viewer, canvasRef }: ViewerReadyCallbackOptions) => void;
   /**
-   * Parameters passed to the skinview3d constructor allowing you to override or add extra features
-   * @notes please take a look at the upstream repo for more info
-   * [bs-community/skinview3d](https://bs-community.github.io/skinview3d/)
+   * Additional configuration options passed directly to the skinview3d constructor
+   * @see [skinview3d documentation](https://bs-community.github.io/skinview3d/) for available options
    */
   options?: SkinViewerOptions;
 }
 
 /**
- * A skinview3d component
+ * React component that renders a 3D Minecraft skin viewer
+ * @param {ReactSkinview3dOptions} props - The component props
+ * @returns {React.ReactElement} A canvas element with the 3D skin viewer
  */
 const ReactSkinview3d = ({
   className,

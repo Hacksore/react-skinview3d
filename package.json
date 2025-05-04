@@ -19,8 +19,7 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "format": "biome format --write",
-    "lint": "biome format",
-    "typecheck": "tsc --noEmit",
+    "lint": "biome lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -41,9 +40,7 @@
     "storybook": "^8.6.12",
     "typescript": "5.8.3"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
