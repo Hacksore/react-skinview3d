@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import ReactSkinview3d from "..";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ReactSkinview3d } from "..";
 import type { SkinViewer } from "skinview3d";
 import { WalkingAnimation } from "skinview3d";
 
