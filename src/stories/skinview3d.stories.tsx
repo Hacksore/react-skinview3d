@@ -129,10 +129,7 @@ export const Interactive: Story = {
     },
     capeUrl: {
       control: { type: "select" },
-      options: [
-        "",
-        "textures/mojang-classic-cape.png",
-      ],
+      options: ["", "textures/mojang-classic-cape.png"],
       description: "Select a cape texture to display",
     },
   },

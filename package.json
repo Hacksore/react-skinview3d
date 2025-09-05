@@ -6,9 +6,7 @@
   "license": "MIT",
   "repository": "Hacksore/react-skinview3d",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
